@@ -2,6 +2,8 @@
 
 A boilerplate to quickly set up a directory of AI workflows built on [MindPal.io](https://mindpal.io) as a public website so anyone can use them.
 
+**[Live Demo](https://custom-ai-tool-directory-boilerplate.vercel.app/)**
+
 ## Features
 
 - Home page that lists all AI workflows with search and category filters
