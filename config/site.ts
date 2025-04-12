@@ -11,5 +11,10 @@ export const siteConfig = {
       href: "https://mindpal.io",
       external: true,
     },
+    {
+      title: "Source code",
+      href: "https://github.com/MindPal-Space/custom-ai-tool-directory-boilerplate",
+      external: true,
+    },
   ],
 }
