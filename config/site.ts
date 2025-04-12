@@ -1,21 +1,15 @@
-export type SiteConfig = typeof siteConfig
-
 export const siteConfig = {
-  name: "pmaker",
-  description:
-    "Viet Maker Community",
+  name: "AI Workflows Directory",
+  description: "Collection of useful AI workflows built on MindPal.io",
   mainNav: [
     {
       title: "Home",
       href: "/",
     },
     {
-      title: "Submit",
-      href: "/submit",
+      title: "Get started with MindPal",
+      href: "https://mindpal.io",
+      external: true,
     },
   ],
-  links: {
-    facebook: "https://www.facebook.com/groups/pmakercommunity",
-    linkedin: "https://www.linkedin.com/company/pmaker-community",
-  },
 }

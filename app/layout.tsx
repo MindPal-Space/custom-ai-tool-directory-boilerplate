@@ -1,20 +1,21 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
+import image from "@/public/opengraph-image.png"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
+import { copywritingConfig } from "@/config/copywriting"
 import { siteConfig } from "@/config/site"
+import { toolsConfig } from "@/config/tools"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { Toaster } from "@/components/ui/sonner"
+import Hero from "@/components/hero"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import Hero from "@/components/hero"
-import { prisma } from "@/server/prisma"
-import { Toaster } from "@/components/ui/sonner"
-import ProductList from "@/components/product-list"
-import { GoogleAnalytics } from '@next/third-parties/google'
-import image from './/opengraph-image.png';
+import ToolList from "@/components/tool-list"
 
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic"
 
 export const metadata: Metadata = {
   title: {
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: image.src,
   },
-  metadataBase: new URL("https://www.pmaker.club"),
+  metadataBase: new URL("https://ai-workflow-directory.vercel.app"),
 }
 
 interface RootLayoutProps {
@@ -42,13 +43,6 @@ interface RootLayoutProps {
 }
 
 export default async function RootLayout({ children }: RootLayoutProps) {
-
-  const productList = await prisma.product.findMany({
-    where: {
-      isFeatured: true,
-    },
-  });
-
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -65,8 +59,18 @@ export default async function RootLayout({ children }: RootLayoutProps) {
               <div className="flex-1">
                 {children}
                 <Hero />
-                <ProductList data={productList} />
+                <ToolList data={toolsConfig} />
               </div>
+              <footer className="border-t py-6 md:py-0">
+                <div className="container flex flex-col items-center justify-between gap-4 md:h-16 md:flex-row">
+                  <p className="text-center text-sm text-muted-foreground md:text-left">
+                    {copywritingConfig.footer.description}
+                  </p>
+                  <p className="text-center text-sm text-muted-foreground md:text-right">
+                    {copywritingConfig.footer.copyright}
+                  </p>
+                </div>
+              </footer>
             </div>
             <Toaster />
             <TailwindIndicator />
