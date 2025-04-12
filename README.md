@@ -79,30 +79,7 @@ To update these files:
 
 ### Color Customization
 
-Customize the color scheme by modifying the [tailwind.config.js](./tailwind.config.js) file:
-
-1. Update the theme colors in the configuration:
-
-```js
-theme: {
-  extend: {
-    colors: {
-      // Primary brand color and its variations
-      primary: {
-        DEFAULT: "hsl(var(--primary))",
-        foreground: "hsl(var(--primary-foreground))",
-      },
-      // You can add additional custom colors
-      custom: {
-        DEFAULT: "#3b82f6", // blue-500
-        dark: "#1e40af",    // blue-800
-      },
-    },
-  },
-}
-```
-
-2. Modify color variables in [/styles/globals.css](./styles/globals.css):
+Customize the color scheme by modifying the color variables in [/styles/globals.css](./styles/globals.css):
 
 ```css
 :root {
@@ -120,9 +97,14 @@ theme: {
 }
 ```
 
-3. For better accessibility, ensure sufficient contrast between your foreground and background colors. You can use tools like [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) to verify.
+The color values are in HSL format (hue, saturation, lightness). To change the primary color:
 
-4. After making changes, restart your development server to see the updated colors.
+1. Pick your brand color using a color picker tool
+2. Convert the color to HSL format (many online tools available)
+3. Replace the values for `--primary` and adjust related colors as needed
+4. Restart your development server to see the changes
+
+For accessibility, ensure there's sufficient contrast between text and background colors.
 
 ## How to Create and Use MindPal Workflows
 
