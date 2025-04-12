@@ -60,6 +60,10 @@ const SheetContent = React.forwardRef<
     <SheetPrimitive.Content
       ref={ref}
       className={cn(sheetVariants({ side }), className)}
+      style={{
+        maxWidth: "none", // Override any max-width restrictions
+        ...(props.style || {}),
+      }}
       {...props}
     >
       {children}

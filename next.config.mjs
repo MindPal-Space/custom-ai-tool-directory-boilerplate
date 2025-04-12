@@ -4,6 +4,13 @@ const nextConfig = {
   experimental: {
     serverActions: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: "**",
+      },
+    ],
+  },
 }
 
 export default nextConfig
